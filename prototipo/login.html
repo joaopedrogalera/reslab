@@ -2,32 +2,32 @@
 <html lang="pt-br" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ResLab-Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-
-    <div class="page">
-      <div class="row  align-items-center justify-content-center">
-        <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label for="uid">Usuário</label>
-                  <input type="text" name="uid" id="uid" placeholder="Usuário" />
-                </div>
-                <div class="form-group">
-                  <label for="passwd">Senha</label>
-                  <input type="passowrd" name="passwd" id="passwd" placeholder="Senha" />
-                </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
-              </form>
-            </div>
+    <form class="form-signin">
+      <img src="img/logo_UTFPR_cor.png" title="UTFPR" alt="UTFPR_logo" class="login-logo"/>
+      <div class="card">
+        <div class="card-body">
+          <h1>ResLab - Login</h1>
+          <small class="form-text text-muted">Para servidores, utilizar o email sem o @utfpr.edu.br. Para alunos, utilizar a+matrícula</small>
+          <div class="form-group">
+            <label for="uid">Usuário</label>
+            <input type="text" name="uid" id="uid" placeholder="Usuário" class="form-control" />
           </div>
+          <div class="form-group">
+            <label for="passwd">Senha</label>
+            <input type="passowrd" name="passwd" id="passwd" placeholder="Senha"  class="form-control"/>
+          </div>
+          <button type="submit" class="btn btn-primary">Entrar</button>
         </div>
       </div>
-    </div>
+    </form>
+    <footer>
+      <span>ResLab 2019</span>
+    </footer>
   </body>
 </html>
