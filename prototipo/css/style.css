@@ -5,3 +5,6 @@ header h2{
   display: inline-block;
   margin-right: 10px;
 }
+div .alert{
+  margin-top: 15px;
+}
