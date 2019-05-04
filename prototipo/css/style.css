@@ -8,3 +8,16 @@ header h2{
 div .alert{
   margin-top: 15px;
 }
+
+input[type="date"]{
+  max-width: 250px;
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+}

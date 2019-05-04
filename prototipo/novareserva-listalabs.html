@@ -31,24 +31,34 @@
     </nav>
     <div class="container">
       <header>
-        <h2>Escolha os sofwares que precisa</h2>
-        <button type="button" name="button" class="btn btn-outline-success">Pular</button>
+        <h2>Laboratórios Disponíveis</h2>
       </header>
       <form>
         <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Laboratório</th>
+              <th>Número de computadores</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
-              <td><input type="checkbox" name="software[]" value="1"></td>
-              <td>Icone</td>
-              <td>software 1</td>
+              <td><input type="radio" name="lab" value="B107"></td>
+              <td>B107</td>
+              <td>15</td>
             </tr>
             <tr>
-              <td><input type="checkbox" name="software[]" value="2"></td>
-              <td>Icone</td>
-              <td>software 2</td>
+              <td><input type="radio" name="lab" value="B201"></td>
+              <td>B201</td>
+              <td>25</td>
             </tr>
           </tbody>
         </table>
+        <div class="form-group">
+          <label for="data">Selecione a data</label>
+          <input type="date" name="data" id="data" class="form-control" required>
+        </div>
         <button type="submit" class="btn btn-success">Pesquisar</button>
       </form>
     </div>
