@@ -12,6 +12,14 @@ div .alert{
 input[type="date"]{
   max-width: 250px;
 }
+.table-btn{
+  line-height: 1;
+}
+
+.reserva-detalhes span{
+  display: block;
+  padding-bottom: 10px;
+}
 
 footer{
   position: relative;
