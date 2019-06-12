@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResLab</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">ResLab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Nova Reserva</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Minhas Reservas</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <h2>Horários Para o laboratório na data</h2>
+      </header>
+      <form>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="M1"></td>
+              <td>M1</td>
+              <td>07:30-08:20</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="M2"></td>
+              <td>M2</td>
+              <td>08:20-09:10</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="M3" disabled></td>
+              <td>M3</td>
+              <td>09:10-10:00</td>
+              <td>Ocupado</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="M4" disabled></td>
+              <td>M4</td>
+              <td>10:20-11:10</td>
+              <td>Ocupado</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="M5" disabled></td>
+              <td>M5</td>
+              <td>11:10-12:00</td>
+              <td>Ocupado</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="M6"></td>
+              <td>M6</td>
+              <td>12:00-12:50</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="T1"></td>
+              <td>T1</td>
+              <td>13:00-13:50</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="T2"></td>
+              <td>T2</td>
+              <td>13:50-14:40</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="T3"></td>
+              <td>T3</td>
+              <td>14:40-15:30</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="T4"></td>
+              <td>T4</td>
+              <td>15:50-16:40</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="T5"></td>
+              <td>T5</td>
+              <td>16:40-17:30</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="T6"></td>
+              <td>T6</td>
+              <td>17:50-18:40</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="N1"></td>
+              <td>N1</td>
+              <td>18:40-19:30</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="N2"></td>
+              <td>N2</td>
+              <td>19:30-20:20</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="N3"></td>
+              <td>N3</td>
+              <td>20:20-21:10</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="N4"></td>
+              <td>N4</td>
+              <td>21:20-22:10</td>
+              <td>Livre</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="horario[]" value="N5"></td>
+              <td>N5</td>
+              <td>22:10-23:00</td>
+              <td>Livre</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-success" onclick="window.history.back()">Voltar</button>
+        <button type="submit" class="btn btn-success">Solicitar</button>
+      </form>
+    </div>
+    <footer>
+      <span>ResLab 2019</span>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

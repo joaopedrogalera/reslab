@@ -1,0 +1,31 @@
+header{
+  margin: 15px auto 10px auto;
+}
+header h2{
+  display: inline-block;
+  margin-right: 10px;
+}
+div .alert{
+  margin-top: 15px;
+}
+
+input[type="date"]{
+  max-width: 250px;
+}
+.table-btn{
+  line-height: 1;
+}
+
+.reserva-detalhes span{
+  display: block;
+  padding-bottom: 10px;
+}
+
+footer{
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+}
