@@ -5,5 +5,5 @@ urlpatterns = [
     path('',views.index),
     path('doLogin',views.doLogin),
     path('loginError',views.loginError),
-    path('dashboard',views.dashboard)
+    path('dashboard',views.showDashboard)
 ]
