@@ -36,6 +36,7 @@ class Laboratorio(models.Model):
     nroComp = models.IntegerField()
     dpto = models.ForeignKey(Departamento,on_delete=models.CASCADE)
     softwares = models.ManyToManyField(Software)
+    adm = models.ForeignKey(Usuario,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.sala
@@ -50,7 +51,8 @@ class Horario(models.Model):
 
 class Reserva(models.Model):
     solicitante = models.ForeignKey(Usuario,on_delete=models.CASCADE)
-    data = models.DateField()
+    data = models.DateField(blank=True)
+    diasemana = models.CharField(max_length=1,blank=True)
     lab = models.ForeignKey(Laboratorio,on_delete=models.CASCADE)
     horarios = models.ManyToManyField(Horario)
     estado = models.CharField(max_length=1)
