@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from . import login
 from . import dashboard
+from . import minhasreservas
+from . import cancelamento
 from .models import Usuario
 
 def index(request):
@@ -26,3 +28,21 @@ def showDashboard(request):
         return redirect('/login')
     else:
         return dashboard.getDashBoard(request)
+
+def showMinhasReservas(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return minhasreservas.getMinhasResevas(request)
+
+def confirmCancelaReserva(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return cancelamento.confirmCancelaReserva(request)
+
+def CancelaReserva(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return cancelamento.CancelaReserva(request)

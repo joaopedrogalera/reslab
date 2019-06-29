@@ -5,26 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ResLab</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">ResLab</a>
+        <a class="navbar-brand" href="/">ResLab</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Dashboard</a>
+            {% for navBarItem in navBarItens %}
+            <li class="nav-item {{ navBarItem.2 }}">
+              <a class="nav-link" href="{{ navBarItem.0 }}">{{ navBarItem.1 }}</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Nova Reserva</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Minhas Reservas</a>
-            </li>
+            {% endfor %}
           </ul>
         </div>
       </div>
@@ -43,30 +39,34 @@
             </tr>
           </thead>
           <tbody>
+            {% for reserva in reservas %}
             <tr>
-              <td>01/06/2019</td>
-              <td>T3,T4</td>
-              <td>Pendente</td>
-              <td><button type="button" class="btn btn-danger table-btn">Cancelar</button></td>
+              <td>{{ reserva.data|date:"d/m/Y" }}</td>
+              <td>
+                {% for horario in reserva.horarios.all %}
+                  {{ horario.cod }},
+                {% endfor %}
+              </td>
+              <td>
+                {% if reserva.estado == 'P' %}
+                  Pendente
+                {% elif reserva.estado == 'A' %}
+                  Aprovada
+                {% elif reserva.estado == 'R' %}
+                  Recusada
+                {% elif reserva.estado == 'C' %}
+                  Cancelada
+                {% elif reserva.estado == 'F' %}
+                  Finalizada
+                {% endif %}
+              </td>
+              <td>
+                {% if reserva.estado == 'P' or reserva.estado == 'A' %}
+                  <a href="confirmacancelareserva?id={{ reserva.id }}" class="btn btn-danger table-btn">Cancelar</a>
+                {% endif %}
+              </td>
             </tr>
-            <tr>
-              <td>22/05/2019</td>
-              <td>T3,T4</td>
-              <td>Confirmada</td>
-              <td><button type="button" class="btn btn-danger table-btn">Cancelar</button></td>
-            </tr>
-            <tr>
-              <td>29/04/2019</td>
-              <td>T3,T4</td>
-              <td>Cancelada</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>05/04/2019</td>
-              <td>T3,T4</td>
-              <td>Concluída</td>
-              <td></td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
     </div>

@@ -1,23 +1,23 @@
 from django.shortcuts import redirect
 import ldap
 from .models import Usuario
+from . import numeracao
 
 def CreateUser(ldapData):
     usuario = Usuario(uid=ldapData[0][1]['uid'][0].decode('utf-8'))
     usuario.nome = ldapData[0][1]['cn'][0].decode('utf-8')
     usuario.email1 = ldapData[0][1]['mail'][0].decode('utf-8')
-    usuario.categoria = '0'
+    usuario.categoria = numeracao.categoria('usuario')
     usuario.cpf = ldapData[0][1]['employeeNumber'][0].decode('utf-8')
 
     groups = ldapData[0][0].split(',')
     if groups[len(groups)-5] == 'ou=alunos':
         usuario.ra = ldapData[0][1]['carLicense'][0].decode('utf-8')
         usuario.email2 = ldapData[0][1]['displayName'][0].decode('utf-8')
-        usuario.cargo = '0'
+        usuario.cargo = numeracao.cargo('aluno')
     else:
         usuario.ra = ldapData[0][1]['pager'][0].decode('utf-8')
-        usuario.cargo = '1'
-        usuario.email2 = '0'
+        usuario.cargo = numeracao.cargo('servidor')
 
     usuario.save()
 

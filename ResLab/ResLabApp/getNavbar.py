@@ -1,9 +1,10 @@
 from .models import Usuario
+from . import numeracao
 
 def navBar(request, pagAtual):
     us = Usuario.objects.get(uid=request.session['uid'])
 
-    if us.categoria == '0':
+    if us.categoria == numeracao.categoria('usuario'):
         navbar = [ ['dashboard',"Dashboard",''],
                     ['novareserva',"Nova Reserva",''],
                     ['minhasreservas',"Minhas Reservas",''],
@@ -16,8 +17,7 @@ def navBar(request, pagAtual):
                     ['cadastroaulas',"Cadastro de aulas",'']
                     ]
 
-    enum = {'dashboard': 0, 'novareserva': 1, 'minhasreservas': 2, 'aprovacaoreservas': 3, 'cadastroaulas': 4}
 
-    navbar[enum[pagAtual]][2] = 'active'
-    
+    navbar[numeracao.navBar(pagAtual)][2] = 'active'
+
     return navbar
