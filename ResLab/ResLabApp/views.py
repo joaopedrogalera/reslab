@@ -5,6 +5,7 @@ from . import login
 from . import dashboard
 from . import minhasreservas
 from . import cancelamento
+from . import atualizaFinalizadas
 from .models import Usuario
 
 def index(request):
