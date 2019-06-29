@@ -17,8 +17,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             {% for navBarItem in navBarItens %}
-            <li class="nav-item {{ navBarItens }}">
-              <a class="nav-link" href="{{ navBarItem }}">{{ navBarItens }}</a>
+            <li class="nav-item {{ navBarItem.2 }}">
+              <a class="nav-link" href="{{ navBarItem.0 }}">{{ navBarItem.1 }}</a>
             </li>
             {% endfor %}
           </ul>
@@ -26,7 +26,9 @@
       </div>
     </nav>
     <div class="container">
-
+      <div class="alert alert-primary">
+        Selecione uma das opções acima
+      </div>
     </div>
     <footer>
       <span>ResLab 2019</span>

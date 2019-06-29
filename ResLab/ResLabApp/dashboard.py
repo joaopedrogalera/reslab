@@ -5,7 +5,8 @@ from . import getNavbar
 
 def getDashBoard(request):
 
-    navBar = getNavbar.navBar(request)
-    
+    navBar = getNavbar.navBar(request,'dashboard')
+
     context = {'navBarItens': navBar}
+
     return render(request,'dashboard.html',context)
