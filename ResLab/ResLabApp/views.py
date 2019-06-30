@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from . import login
-from . import dashboard
+from . import getNavbar
 from . import minhasreservas
 from . import cancelamento
 from . import aprovacaoreservas
+from . import cadastroaulas
 from .models import Usuario
 
 def index(request):
@@ -28,7 +29,9 @@ def showDashboard(request):
     if not request.session.get('exists',False):
         return redirect('/login')
     else:
-        return dashboard.getDashBoard(request)
+        navBar = getNavbar.navBar(request,'dashboard')
+        context = {'navBarItens': navBar}
+        return render(request,'dashboard.html',context)
 
 def showMinhasReservas(request):
     if not request.session.get('exists',False):
@@ -71,3 +74,9 @@ def RecusaReserva(request):
         return redirect('/login')
     else:
         return aprovacaoreservas.RecusaReserva(request)
+
+def CadastroAulas(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return cadastroaulas.CadastroAulas(request)
