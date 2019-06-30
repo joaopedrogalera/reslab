@@ -18,3 +18,8 @@ def estadoReserva(texto):
     enum = {'pendente': 'P','aprovada': 'A','recusada': 'R', 'cancelada': 'C', 'finalizada': 'F'}
 
     return enum[texto]
+
+def tipoReserva(texto):
+    enum = {'reserva': 'R', 'aula': 'A'}
+
+    return enum[texto]

@@ -80,3 +80,10 @@ def CadastroAulas(request):
         return redirect('/login')
     else:
         return cadastroaulas.CadastroAulas(request)
+
+@csrf_exempt
+def CadastraAula(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return cadastroaulas.CadastraAula(request)

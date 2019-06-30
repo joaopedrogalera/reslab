@@ -5,7 +5,7 @@ class Usuario(models.Model):
     uid = models.CharField(max_length=20,primary_key=True)
     nome = models.CharField(max_length=50)
     email1 = models.CharField(max_length=50)
-    email2 = models.CharField(max_length=50,blank=True)
+    email2 = models.CharField(max_length=50,null=True)
     ra = models.CharField(max_length=10)
     categoria = models.CharField(max_length=1)
     cargo = models.CharField(max_length=1)
@@ -51,11 +51,12 @@ class Horario(models.Model):
 
 class Reserva(models.Model):
     solicitante = models.ForeignKey(Usuario,on_delete=models.CASCADE)
-    data = models.DateField(blank=True)
-    diasemana = models.CharField(max_length=1,blank=True)
+    data = models.DateField(null=True)
+    diasemana = models.CharField(max_length=1,null=True)
     lab = models.ForeignKey(Laboratorio,on_delete=models.CASCADE)
     horarios = models.ManyToManyField(Horario)
     estado = models.CharField(max_length=1)
+    tipo = models.CharField(max_length=1)
 
     def Aprova(self):
         if self.estado == numeracao.estadoReserva('pendente'):

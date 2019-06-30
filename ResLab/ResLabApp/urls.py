@@ -13,5 +13,6 @@ urlpatterns = [
     path('detalhereserva',views.showDetalheReserva),
     path('aprovareserva',views.AprovaReserva),
     path('recusareserva',views.RecusaReserva),
-    path('cadastroaulas',views.CadastroAulas)
+    path('cadastroaulas',views.CadastroAulas),
+    path('cadastraaula',views.CadastraAula)
 ]

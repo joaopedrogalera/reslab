@@ -26,40 +26,10 @@
       </div>
     </nav>
     <div class="container">
-      <header>
-        <h2>Cadastro de Aulas</h2>
-      </header>
-      <form class="form-aula" action="cadastraaula" method="post">
-        <div class="form-group">
-          <label for="dia">Laboratório</label>
-          <select name="lab" id="lab" class="form-control">
-            {% for laboratorio in laboratorios %}
-              <option value="{{ laboratorio.sala }}">{{ laboratorio.sala }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="dia">Dia da semana</label>
-          <select name="dia" id="dia" class="form-control">
-            <!--Biblioteca de data do Python começa a semana na segunda-->
-            <option value="0">Segunda</option>
-            <option value="1">Terça</option>
-            <option value="2">Quarta</option>
-            <option value="3">Quinta</option>
-            <option value="4">Sexta</option>
-            <option value="5">Sábado</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="horario">Horários</label>
-          <select name="horario[]" id="horario" class="form-control" multiple>
-            {% for horario in horarios %}
-              <option value="{{ horario.cod }}">{{ horario.cod }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <button type="submit" class="btn btn-success">Cadastrar</button>
-      </form>
+      <div class="alert alert-success">
+        Aula Cadastrada
+      </div>
+      <a href="cadastroaulas" class="btn btn-success">Voltar</a>
     </div>
     <footer>
       <span>ResLab 2019</span>
