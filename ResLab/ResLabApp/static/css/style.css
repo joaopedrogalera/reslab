@@ -21,6 +21,10 @@ input[type="date"]{
   padding-bottom: 10px;
 }
 
+.software-icon{
+  width: 30px;
+}
+
 footer{
   position: relative;
   bottom: 0;

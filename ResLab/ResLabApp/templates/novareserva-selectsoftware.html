@@ -28,21 +28,18 @@
     <div class="container">
       <header>
         <h2>Escolha os sofwares que precisa</h2>
-        <button type="button" name="button" class="btn btn-outline-success">Pular</button>
+        <a href="novareserva.buscasoftwares" class="btn btn-outline-success">Pular</a>
       </header>
-      <form>
+      <form action="novareserva.buscasoftwares" method="post">
         <table class="table table-striped">
           <tbody>
+            {% for software in softwares %}
             <tr>
-              <td><input type="checkbox" name="software[]" value="1"></td>
-              <td>Icone</td>
-              <td>software 1</td>
+              <td><input type="checkbox" name="software[]" value="{{ software.id }}"></td>
+              <td><img class="software-icon" src="static/img/icons/{{ software.nome }}-{{ software.versao }}.png" /></td>
+              <td>{{ software.nome }} {{ software.versao }}</td>
             </tr>
-            <tr>
-              <td><input type="checkbox" name="software[]" value="2"></td>
-              <td>Icone</td>
-              <td>software 2</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
         <button type="submit" class="btn btn-success">Pesquisar</button>

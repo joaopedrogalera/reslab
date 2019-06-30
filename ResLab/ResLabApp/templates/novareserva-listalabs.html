@@ -29,26 +29,25 @@
       <header>
         <h2>Laboratórios Disponíveis</h2>
       </header>
-      <form>
+      <form method="post" action="novareserva.mostrahorario">
         <table class="table table-striped">
           <thead>
             <tr>
               <th>#</th>
               <th>Laboratório</th>
+              <th>Departamento</th>
               <th>Número de computadores</th>
             </tr>
           </thead>
           <tbody>
+            {% for laboratorio in laboratorios %}
             <tr>
-              <td><input type="radio" name="lab" value="B107"></td>
-              <td>B107</td>
-              <td>15</td>
+              <td><input type="radio" name="lab" value="{{ laboratorio.sala }}"></td>
+              <td>{{ laboratorio.sala }}</td>
+              <td>{{ laboratorio.dpto.sigla }}</td>
+              <td>{{ laboratorio.nroComp }}</td>
             </tr>
-            <tr>
-              <td><input type="radio" name="lab" value="B201"></td>
-              <td>B201</td>
-              <td>25</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
         <div class="form-group">

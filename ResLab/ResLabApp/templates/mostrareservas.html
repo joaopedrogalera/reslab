@@ -33,6 +33,7 @@
           <thead>
             <tr>
               <th>Data</th>
+              <th>Laboratório</th>
               <th>Horário</th>
               <th>Status</th>
               <th></th>
@@ -42,6 +43,7 @@
             {% for reserva in reservas %}
             <tr>
               <td>{{ reserva.data|date:"d/m/Y" }}</td>
+              <td>{{ reserva.lab.sala }}</td>
               <td>
                 {% for horario in reserva.horarios.all %}
                   {{ horario.cod }},

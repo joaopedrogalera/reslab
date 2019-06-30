@@ -4,7 +4,6 @@ from . import views
 urlpatterns = [
     path('',views.index),
     path('doLogin',views.doLogin),
-    path('loginError',views.loginError),
     path('dashboard',views.showDashboard),
     path('minhasreservas',views.showMinhasReservas),
     path('confirmacancelareserva',views.confirmCancelaReserva),
@@ -14,5 +13,9 @@ urlpatterns = [
     path('aprovareserva',views.AprovaReserva),
     path('recusareserva',views.RecusaReserva),
     path('cadastroaulas',views.CadastroAulas),
-    path('cadastraaula',views.CadastraAula)
+    path('cadastraaula',views.CadastraAula),
+    path('novareserva',views.NovaReservaSelSoft),
+    path('novareserva.buscasoftwares',views.NovaReservaBuscaSoftware),
+    path('novareserva.mostrahorario',views.NovaReservaMostraHorario),
+    path('novareserva.solicita',views.NovaReservaSolicita)
 ]

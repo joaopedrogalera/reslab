@@ -7,6 +7,7 @@ from . import minhasreservas
 from . import cancelamento
 from . import aprovacaoreservas
 from . import cadastroaulas
+from . import novareserva
 from .models import Usuario
 
 def index(request):
@@ -21,9 +22,6 @@ def doLogin(request):
         return login.doLogin(request)
     else:
         return redirect('/dashboard')
-
-def loginError(request):
-    return render(request,"loginError.html")
 
 def showDashboard(request):
     if not request.session.get('exists',False):
@@ -87,3 +85,30 @@ def CadastraAula(request):
         return redirect('/login')
     else:
         return cadastroaulas.CadastraAula(request)
+
+def NovaReservaSelSoft(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return novareserva.SelSoft(request)
+
+@csrf_exempt
+def NovaReservaBuscaSoftware(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return novareserva.BuscaSoftware(request)
+
+@csrf_exempt
+def NovaReservaMostraHorario(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return novareserva.MostraHorario(request)
+
+@csrf_exempt
+def NovaReservaSolicita(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        return novareserva.Solicita(request)

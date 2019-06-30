@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 import ldap
 from .models import Usuario
 from . import numeracao
@@ -24,9 +24,11 @@ def CreateUser(ldapData):
 
 def doLogin(request):
     if not (request.method == 'POST') or request.POST['uid'] == '' or request.POST['passwd'] == '':
-        return redirect('/loginError')
+        return render(request,"loginError.html")
 
-    l = ldap.initialize('ldap://ldapslave.ct.utfpr.edu.br')
+    ldapURI = 'ldap://ldapslave.ct.utfpr.edu.br'
+
+    l = ldap.initialize(ldapURI)
     l.protocol_version = ldap.VERSION3
     l.simple_bind_s()
 
@@ -34,19 +36,19 @@ def doLogin(request):
     resultTipe, resultData = l.result(ldapResult, 0)
 
     if resultData == []:
-        return redirect('/loginError')
+        return render(request,"loginError.html")
 
     dn = resultData[0][0]
 
     l.unbind()
 
-    l = ldap.initialize('ldap://ldapslave.ct.utfpr.edu.br')
+    l = ldap.initialize(ldapURI)
     l.protocol_version = ldap.VERSION3
     try:
         l.simple_bind_s(dn,request.POST['passwd'])
     except ldap.INVALID_CREDENTIALS:
         l.unbind()
-        return redirect('/loginError')
+        return render(request,"loginError.html")
 
 
     try:
