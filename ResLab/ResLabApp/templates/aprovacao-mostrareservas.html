@@ -39,18 +39,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>B202</td>
-              <td>01/06/2019</td>
-              <td>T3,T4</td>
-              <td><button type="button" class="btn btn-primary table-btn">Ver</button></td>
-            </tr>
-            <tr>
-              <td>B105</td>
-              <td>23/05/2019</td>
-              <td>T3,T4,T5</td>
-              <td><button type="button" class="btn btn-primary table-btn">Ver</button></td>
-            </tr>
+            {% for reserva in reservas %}
+              <tr>
+                <td>{{ reserva.lab.sala }}</td>
+                <td>{{ reserva.data|date:'d/m/Y' }}</td>
+                <td>
+                  {% for horario in reserva.horarios.all %}
+                    {{ horario.cod }},
+                  {% endfor %}
+                </td>
+                <td><a href="detalhereserva?id={{ reserva.id }}" class="btn btn-primary table-btn">Ver</a></td>
+              </tr>
+            {% endfor %}
           </tbody>
         </table>
     </div>

@@ -6,7 +6,7 @@ from . import numeracao
 
 def getMinhasResevas(request):
 
-    reservas = Reserva.objects.filter(solicitante=request.session['uid'])
+    reservas = Reserva.objects.filter(solicitante=request.session['uid']).order_by('-data')
 
     context = {'navBarItens': getNavbar.navBar(request,'minhasreservas'),
                 'reservas': reservas,

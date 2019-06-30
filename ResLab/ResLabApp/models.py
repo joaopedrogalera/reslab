@@ -63,7 +63,7 @@ class Reserva(models.Model):
             self.save()
 
     def Recusa(self):
-        if self.estado == numeracao.estadoReserva('pendente'):
+        if self.estado == numeracao.estadoReserva('pendente') :
             self.estado = numeracao.estadoReserva('recusada')
             self.save()
 

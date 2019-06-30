@@ -1,6 +1,7 @@
 from .models import Reserva
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from . import getNavbar
 
 def confirmCancelaReserva(request):
 
@@ -9,7 +10,8 @@ def confirmCancelaReserva(request):
     if not reserva.solicitante.uid == request.session['uid']:
         return redirect('/minhasreservas')
 
-    context = {'reserva': reserva}
+    context = {'reserva': reserva,
+                'navBarItens': getNavbar.navBar(request,'minhasreservas')}
     return render(request,'minhasreservas-cancela.html',context)
 
 

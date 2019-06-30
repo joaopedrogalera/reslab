@@ -8,5 +8,9 @@ urlpatterns = [
     path('dashboard',views.showDashboard),
     path('minhasreservas',views.showMinhasReservas),
     path('confirmacancelareserva',views.confirmCancelaReserva),
-    path('cancelareserva',views.CancelaReserva)
+    path('cancelareserva',views.CancelaReserva),
+    path('aprovacaoreservas',views.showReservasPendentes),
+    path('detalhereserva',views.showDetalheReserva),
+    path('aprovareserva',views.AprovaReserva),
+    path('recusareserva',views.RecusaReserva)
 ]

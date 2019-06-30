@@ -31,15 +31,19 @@
       </header>
       <div class="reserva-detalhes">
         <h3>Solicitante</h3>
-        <span>Nome</span>
+        <span>{{ reserva.solicitante.nome }} - {{ reserva.solicitante.ra }}</span>
         <h3>Laboratório</h3>
-        <span>BXXX</span>
+        <span>{{ reserva.lab.sala }}</span>
         <h3>Data</h3>
-        <span>dd/mm/aaaa</span>
+        <span>{{ reserva.data|date:'d/m/Y' }}</span>
         <h3>Horários</h3>
-        <span>T1,T2,T3</span>
-        <button type="button" class="btn btn-danger">Não Aprova</button>
-        <button type="button" class="btn btn-success">Aprova</button>
+        <span>
+          {% for horario in reserva.horarios.all %}
+            {{ horario.cod }},
+          {% endfor %}
+        </span>
+        <a href="recusareserva?id={{ reserva.id }}" class="btn btn-danger">Não Aprova</a>
+        <a href="aprovareserva?id={{ reserva.id }}" class="btn btn-success">Aprova</a>
       </div>
     </div>
     <footer>
