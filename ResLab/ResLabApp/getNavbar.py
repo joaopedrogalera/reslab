@@ -8,13 +8,15 @@ def navBar(request, pagAtual):
         navbar = [ ['dashboard',"Dashboard",''],
                     ['novareserva',"Nova Reserva",''],
                     ['minhasreservas',"Minhas Reservas",''],
+                    ['logout',"Sair"]
                     ]
     else:
         navbar = [ ['dashboard',"Dashboard",''],
                     ['novareserva',"Nova Reserva",''],
                     ['minhasreservas',"Minhas Reservas",''],
                     ['aprovacaoreservas',"Aprovação de reservas",''],
-                    ['cadastroaulas',"Cadastro de aulas",'']
+                    ['cadastroaulas',"Cadastro de aulas",''],
+                    ['logout',"Sair"]
                     ]
 
 

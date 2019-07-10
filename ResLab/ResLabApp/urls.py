@@ -17,5 +17,7 @@ urlpatterns = [
     path('novareserva',views.NovaReservaSelSoft),
     path('novareserva.buscasoftwares',views.NovaReservaBuscaSoftware),
     path('novareserva.mostrahorario',views.NovaReservaMostraHorario),
-    path('novareserva.solicita',views.NovaReservaSolicita)
+    path('novareserva.solicita',views.NovaReservaSolicita),
+    path('logout',views.Logout),
+    path('login',views.LoginPage)
 ]

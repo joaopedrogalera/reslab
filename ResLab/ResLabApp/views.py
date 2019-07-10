@@ -16,6 +16,9 @@ def index(request):
     else:
         return redirect('/dashboard')
 
+def LoginPage(request):
+    return redirect('/')
+
 @csrf_exempt
 def doLogin(request):
     if not request.session.get('exists',False):
@@ -112,3 +115,10 @@ def NovaReservaSolicita(request):
         return redirect('/login')
     else:
         return novareserva.Solicita(request)
+
+def Logout(request):
+    if not request.session.get('exists',False):
+        return redirect('/login')
+    else:
+        request.session['exists'] = False
+        return redirect('/login')
